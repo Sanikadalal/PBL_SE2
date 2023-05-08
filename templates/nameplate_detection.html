@@ -1,0 +1,245 @@
+{% extends 'layout.html' %} {% block body %}
+<style>sd 
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  }
+  form {
+    text-align: center;
+    margin-top: 50px;
+  }
+  label {
+    font-size: 18px;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  }
+  input[type="file"] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: rgb(211, 160, 160);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      font-size: 14px;
+    }
+    input[type="file"] {
+      padding: 5px;
+    }
+    input[type="submit"] {
+      padding: 5px;
+    }
+  }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Licence Plate- Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static',filename='assets/img/favicon.png') }}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static',filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static',filename='assets/css/style.css') }}" rel="stylesheet">
+
+</head>
+<script>
+    function kube(cmd, p, b1, b2) {
+        document.getElementById(p).innerHTML = "Output is Coming, Please Wait...";
+        document.getElementById(b1).style.display = "none";
+        document.getElementById(b2).style.display = "block";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://54.175.225.126/cgi-bin/kube.py?x=" + cmd, true);
+        document.getElementById(p).innerHTML = "Output is Coming, Please Wait...";
+        xhr.send();
+        xhr.onload = function() {
+            var output = xhr.responseText;
+            document.getElementById(p).innerHTML = output;
+        }
+    }
+</script>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="{{ url_for('index') }}">SCOE</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="{{ url_for('index') }}" class="logo"><img src={{ url_for('static',filename='assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{{ url_for('docker') }}">Docker</a></li>
+                    <li><a class="nav-link scrollto" href="{{ url_for('nameplate_detection') }}">Nameplate Detection</a></li>
+                    <li><a class="nav-link scrollto" href="{{ url_for('team') }}">Team</a></li>
+                    <li><a class="getstarted scrollto" href="{{ url_for('nameplate_detection') }}">Get Started</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= About Video Section ======= -->
+    <section id="about-video" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+            <br /><br /><br />
+            <div class="row">
+                <br /><br /><br /><br />
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{{ url_for('static',filename='assets/img/car.gif') }}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-6 col-md-6 d-flex align-items-stretch " data-aos="zoom-in " data-aos-delay="100 ">
+                    <div class="icon-box iconbox-blue ">
+                        <h2 style="text-align: center;">Licence Plate  Recognition </h2><br>
+
+                        <p class="fst-italic">
+                          Deep learning models for license plate detection and optical character recognition.
+                        </p><br>
+                        
+                        <p>- upload an image of the vehicle's number plate and display the output with the extracted license plate text highlighted.</p>
+                      
+                        <p>
+                          <div class="container">
+                            <br />
+                            <!-- <form method="POST"  enctype="multipart/form-data">
+                              <label for="file_input">Select an image:</label>
+                              <br>
+                              <input type="file" name="image_name" required>
+                              <br>
+                              <input type="submit" value="Process">
+                            </form> -->
+                            <form action="/nameplate_detection" method="POST" enctype="multipart/form-data">
+                              <div class="input-group">
+                                <input type="file" class="form-control" name="image_name" required />
+                                <input type="submit" value="UPLOAD" class="btn btn-outline-secondary" />
+                              </div>
+                            </form>
+                          </div>
+                          
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+      <!-- End About Video Section -->
+
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+      <!-- Vendor JS Files -->
+      <script src="{{ url_for('static',filename='assets/vendor/aos/aos.js') }}"></script>
+      <script src="{{ url_for('static',filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ url_for('static',filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+      <script src="{{ url_for('static',filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+      <script src="{{ url_for('static',filename='assets/vendor/php-email-form/validate.js') }}"></script>
+      <script src=" {{ url_for( 'static',filename='assets/vendor/purecounter/purecounter.js' ) }} "></script>
+      <script src="{{ url_for( 'static',filename='assets/vendor/swiper/swiper-bundle.min.js' ) }} "></script>
+  
+      <!-- Template Main JS File -->
+      <script src="{{ url_for( 'static',filename='assets/js/main.js' ) }} "></script>
+  
+  </body>
+  
+  </html>
+
+{% if upload %}
+<div class="container">
+  <br />
+  <table>
+    <tr>
+      <td>
+        <img
+          class="rounded float-left img-fluid"
+          src="/static/upload/{{upload_image}}"
+          alt=""
+        />
+      </td>
+      <td>
+        <img
+          class="rounded float-right img-fluid"
+          src="/static/predict/{{upload_image}}"
+          alt=""
+        />
+      </td>
+    </tr>
+  </table>
+  <br />
+  <table style="border: solid black; width: 100%">
+    <tr style="border: solid black">
+      <th>CROPPEED LICENCE PLATE IMAGE</th>
+      <th>TEXT</th>
+    </tr>
+    <tr style="border: solid black">
+      <td>
+        <img class="img-fluid" src="/static/roi/{{ upload_image }}" alt="" />
+      </td>
+      <td style="background-color: #c1dce0">
+        <h1 class="display-8">{{ text }}</h1>
+      </td>
+    </tr>
+  </table>
+</div>
+
+{% endif %} {% endblock %}
