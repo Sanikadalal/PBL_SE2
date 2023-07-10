@@ -9,7 +9,7 @@ import pytesseract as pt
 model = tf.keras.models.load_model(
     './Model/object_detection.h5')
 
-# /Users/suyogchavan/Desktop/Learning ML/Automatic-License-Plate-Detection-main/object_detection.h5
+# /Desktop/Learning ML/Automatic-License-Plate-Detection-main/object_detection.h5
 
 
 def object_detection(path, filename):
